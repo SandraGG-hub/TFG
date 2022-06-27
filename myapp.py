@@ -1,5 +1,4 @@
 #importamos librerías
-#!/bin/sh
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
