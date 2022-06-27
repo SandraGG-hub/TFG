@@ -1,6 +1,4 @@
 #importamos librerías
-#!/usr/bin/env python
-import sys
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -206,7 +204,7 @@ def analisis_2(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
 
         #preprocesamiento
         preproceso=[]
-        tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='traducir/')
+        tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='traducir/bin/')
         for x in tweet['tweets']:
             tags = tagger.TagText(x)
             row=''
