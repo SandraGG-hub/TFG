@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-06-10 15:30+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: myapp.py:82 myapp.py:168
+msgid "Preprocesamiento"
+msgstr "Preprocessing"
+
+#: myapp.py:93 myapp.py:182
+msgid "División del conjunto de datos"
+msgstr "Split dataset"
+
+#: myapp.py:94 myapp.py:183
+msgid "Set de entrenamiento (80%):"
+msgstr "Train dataset (80%):"
+
+#: myapp.py:96 myapp.py:185
+msgid "Set de prueba (20%):"
+msgstr "Test dataset (20%):"
+
+#: myapp.py:98 myapp.py:187
+msgid "Bolsa de palabras"
+msgstr "Bag of words"
+
+#: myapp.py:106 myapp.py:194
+msgid "Métricas"
+msgstr "Metrics"
+
+#: myapp.py:107 myapp.py:195
+msgid "Accuracy:"
+msgstr "Accuracy:"
+
+#: myapp.py:109 myapp.py:197
+msgid "Precision:"
+msgstr "Precision:"
+
+#: myapp.py:111 myapp.py:199
+msgid "Recall:"
+msgstr "Recall:"
+
+#: myapp.py:113 myapp.py:201
+msgid "F1-score:"
+msgstr "F1-score:"
+
+#: myapp.py:237
+msgid "Detección de odio y sesgos sociales"
+msgstr "Hate and social biases detection"
+
+#: myapp.py:238
+msgid "Esta aplicación nos permite visualizar el proceso del sistema de minería de opiniones creado para la detección del sentimiento de odio y la identificicación de sesgos sociales como la discriminación racial y de género"
+msgstr "This app allow us to visualize the process of the opinion mining system created for the detection of hate feelings and the identification of social biases such as racial and gender discrimination "
+
+#: myapp.py:239
+msgid "Parámetros"
+msgstr "Parameters"
+
+#: myapp.py:242
+msgid "Mostrar datos"
+msgstr "Show dataset"
+
+#: myapp.py:271
+msgid "Importar dataset"
+msgstr "Import dataset"
+
+#: myapp.py:294
+msgid "Parámetros del usuario"
+msgstr "User parameters"
+
+#: myapp.py:334
+msgid "Clasificar"
+msgstr "Classify"
+
+#: myapp.py:335
+msgid "Etiquetado sentimientos"
+msgstr "Sentiment labeling"
+
+#: myapp.py:429
+msgid "Matriz de confusión"
+msgstr "Confusion matrix"
+

@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-06-10 15:30+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: myapp.py:82 myapp.py:168
+msgid "Preprocesamiento"
+msgstr ""
+
+#: myapp.py:93 myapp.py:182
+msgid "División del conjunto de datos"
+msgstr ""
+
+#: myapp.py:94 myapp.py:183
+msgid "Set de entrenamiento (80%):"
+msgstr ""
+
+#: myapp.py:96 myapp.py:185
+msgid "Set de prueba (20%):"
+msgstr ""
+
+#: myapp.py:98 myapp.py:187
+msgid "Bolsa de palabras"
+msgstr ""
+
+#: myapp.py:106 myapp.py:194
+msgid "Métricas"
+msgstr ""
+
+#: myapp.py:107 myapp.py:195
+msgid "Accuracy:"
+msgstr ""
+
+#: myapp.py:109 myapp.py:197
+msgid "Precision:"
+msgstr ""
+
+#: myapp.py:111 myapp.py:199
+msgid "Recall:"
+msgstr ""
+
+#: myapp.py:113 myapp.py:201
+msgid "F1-score:"
+msgstr ""
+
+#: myapp.py:237
+msgid "Detección de odio y sesgos sociales"
+msgstr ""
+
+#: myapp.py:238
+msgid "Esta aplicación nos permite visualizar el proceso del sistema de minería de opiniones creado para la detección del sentimiento de odio y la identificicación de sesgos sociales como la discriminación racial y de género"
+msgstr ""
+
+#: myapp.py:239
+msgid "Parámetros"
+msgstr ""
+
+#: myapp.py:242
+msgid "Mostrar datos"
+msgstr ""
+
+#: myapp.py:271
+msgid "Importar dataset"
+msgstr ""
+
+#: myapp.py:294
+msgid "Parámetros del usuario"
+msgstr ""
+
+#: myapp.py:334
+msgid "Clasificar"
+msgstr ""
+
+#: myapp.py:335
+msgid "Etiquetado sentimientos"
+msgstr ""
+
+#: myapp.py:429
+msgid "Matriz de confusión"
+msgstr ""
+
