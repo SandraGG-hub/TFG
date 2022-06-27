@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN="/Users/franciscoburguillosmunoz/Desktop/bin"
+CMD="/Users/franciscoburguillosmunoz/Desktop/cmd"
+LIB="/Users/franciscoburguillosmunoz/Desktop/lib"
+
+OPTIONS="-token -lemma -sgml"
+
+TOKENIZER=${CMD}/utf8-tokenize.perl
+TAGGER=${BIN}/tree-tagger
+ABBR_LIST=${LIB}/spanish-abbreviations
+PARFILE=${LIB}/spanish-ancora.par
+
+$TOKENIZER -a $ABBR_LIST $* |
+$TAGGER $OPTIONS $PARFILE
