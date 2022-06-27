@@ -1,4 +1,6 @@
 #importamos librerías
+#!/usr/bin/env python
+import sys
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
