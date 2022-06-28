@@ -54,7 +54,7 @@ def filedownload(df, language, final):
         return href
 
 #sistema de minería de opiniones con herramienta NLTK
-def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, test, train, language):
+def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, test, train, language, vectorizador):
         
         #leer dataset
         tweet = pd.read_csv(dataset_clasificador, header=None, sep=';', names=['label', 'tweets'])
