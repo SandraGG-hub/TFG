@@ -60,11 +60,11 @@ def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
         tweet = pd.read_csv(dataset_clasificador, header=None, sep=';', names=['label', 'tweets'])
 
         #etiquetado de sentimientos
-        if dataset_clasificador == 'traducir/total_tuits_odio.csv':
+        if dataset_clasificador == 'auxiliar/total_tuits_odio.csv':
             tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
-        elif dataset_clasificador == 'traducir/total_tuits_odio_1discriminacion.csv':
+        elif dataset_clasificador == 'auxiliar/total_tuits_odio_1discriminacion.csv':
             tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
-        elif dataset_clasificador == 'traducir/total_tuits_odio_2discriminaciones.csv':
+        elif dataset_clasificador == 'auxiliar/total_tuits_odio_2discriminaciones.csv':
             tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
         else:
                 st.write(f'{dataset_clasificador}')
@@ -177,11 +177,11 @@ def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
         #tweet = pd.read_csv(dataset_clasificador, header=None, sep=';', names=['label', 'tweets'])
 
         #etiquetado de sentimientos    
-        #if dataset_clasificador == 'traducir/total_tuits_odio.csv':
+        #if dataset_clasificador == 'auxiliar/total_tuits_odio.csv':
          #   tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
-        #elif dataset_clasificador == 'traducir/total_tuits_odio_1discriminacion.csv':
+        #elif dataset_clasificador == 'auxiliar/total_tuits_odio_1discriminacion.csv':
          #   tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
-        #elif dataset_clasificador == 'traducir/total_tuits_odio_2discriminaciones.csv':
+        #elif dataset_clasificador == 'auxiliar/total_tuits_odio_2discriminaciones.csv':
           #  tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
         #else:
                 #st.write(f'{dataset_clasificador}')
@@ -208,7 +208,7 @@ def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
 
         #preprocesamiento
         #preproceso=[]
-        #tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='traducir/bin/')
+        #tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='auxiliar/bin/')
         #for x in tweet['tweets']:
             #tags = tagger.TagText(x)
             #row=''
@@ -299,7 +299,7 @@ def main():
 
     #logo aplicación web
     col1, col2, col3 = st.columns(3)
-    image = Image.open('traducir/logo.png')
+    image = Image.open('auxiliar/logo.png')
     with col1:
         st.write(' ')
     with col2:
@@ -386,7 +386,7 @@ def main():
     #mostrar dataset seleccionado
     if agree:
             if dataset == 'odio' or dataset == 'hate':
-                    seleccionado = pd.read_csv('traducir/total_tuits_odio.csv', header=None, sep=';', names=['label', 
+                    seleccionado = pd.read_csv('auxiliar/total_tuits_odio.csv', header=None, sep=';', names=['label', 
 'tweets'])
                     st.subheader(f"Dataset: {dataset} ")
                     if language == 'es':
@@ -396,7 +396,7 @@ def main():
                     st.dataframe(seleccionado, 2000)
                     st.markdown(filedownload(seleccionado, language), unsafe_allow_html=True)
             elif dataset == 'odio y discriminación racial' or dataset == 'hate and racial discrimination':
-                    seleccionado = pd.read_csv('traducir/total_tuits_odio_1discriminacion.csv', header=None, sep=';', 
+                    seleccionado = pd.read_csv('auxiliar/total_tuits_odio_1discriminacion.csv', header=None, sep=';', 
 names=['label', 'tweets'])
                     st.subheader(f"Dataset: {dataset} ")
                     if language == 'es':
@@ -406,7 +406,7 @@ names=['label', 'tweets'])
                     st.dataframe(seleccionado, 2000)
                     st.markdown(filedownload(seleccionado, language, final), unsafe_allow_html=True)
             elif dataset == 'odio, discriminación racial y de género' and dataset == 'hate, racial and gender discrimination':
-                    seleccionado = pd.read_csv('traducir/total_tuits_odio_2discriminaciones.csv', header=None, sep=';', 
+                    seleccionado = pd.read_csv('auxiliar/total_tuits_odio_2discriminaciones.csv', header=None, sep=';', 
 names=['label', 'tweets'])
                     st.subheader(f"Dataset: {dataset} ")
                     if language == 'es':
@@ -428,18 +428,18 @@ names=['label', 'tweets'])
             odio_racial=['no odio','odio','discriminación racial']
             odio_racial_genero=['no odio','odio','discriminación racial','discriminación de género']
             if dataset == 'odio':
-                    dataset_clasificador = 'traducir/total_tuits_odio.csv'
+                    dataset_clasificador = 'auxiliar/total_tuits_odio.csv'
                     class_names= solo_odio
                     info.loc['odio'] = 1
                     st.write(info)
             elif dataset == 'odio y discriminación racial':
-                    dataset_clasificador = 'traducir/total_tuits_odio_1discriminacion.csv'
+                    dataset_clasificador = 'auxiliar/total_tuits_odio_1discriminacion.csv'
                     class_names=odio_racial
                     info.loc['odio'] = 1
                     info.loc['discriminación racial'] = 2
                     st.write(info)
             elif dataset == 'odio, discriminación racial y de género':
-                    dataset_clasificador = 'traducir/total_tuits_odio_2discriminaciones.csv'
+                    dataset_clasificador = 'auxiliar/total_tuits_odio_2discriminaciones.csv'
                     class_names=odio_racial_genero
                     info.loc['odio'] = 1
                     info.loc['discriminación racial'] = 2
@@ -465,18 +465,18 @@ names=['label', 'tweets'])
             odio_racial=['non-hate','hate','racial discrimination']
             odio_racial_genero=['non-hate','hate','racial discrimination','gender discrimination']
             if dataset == 'hate':
-                    dataset_clasificador = 'traducir/total_tuits_odio.csv'
+                    dataset_clasificador = 'auxiliar/total_tuits_odio.csv'
                     class_names= solo_odio
                     info.loc['hate'] = 1
                     st.write(info)
             elif dataset == 'hate and racial discrimination':
-                    dataset_clasificador = 'traducir/total_tuits_odio_1discriminacion.csv'
+                    dataset_clasificador = 'auxiliar/total_tuits_odio_1discriminacion.csv'
                     class_names=odio_racial
                     info.loc['hate'] = 1
                     info.loc['racial discrimination'] = 2
                     st.write(info)
             elif dataset == 'hate, racial and gender discrimination':
-                    dataset_clasificador = 'traducir/total_tuits_odio_2discriminaciones.csv'
+                    dataset_clasificador = 'auxiliartotal_tuits_odio_2discriminaciones.csv'
                     class_names=odio_racial_genero
                     info.loc['hate'] = 1
                     info.loc['racial discrimination'] = 2
