@@ -377,6 +377,10 @@ def main():
     #    st.markdown(f"Herramienta seleccionada: {herramienta}")
     #elif language == 'en':
     #    st.markdown(f"Selected tool: {herramienta}")
+    if language == 'es':
+        st.markdown(f"Vectorizador seleccionado: {vectorizador}")
+    elif language == 'en':
+        st.markdown(f"Selected vectorizer: {vectorizador}")
     st.write(df)
 
     #mostrar dataset seleccionado
