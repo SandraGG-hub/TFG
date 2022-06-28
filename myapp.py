@@ -503,7 +503,7 @@ names=['label', 'tweets'])
                 ngramas_2 = 2
 
         #if herramienta == 'NLTK':
-                result = analisis_1(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language, vectorizador)
+        result = analisis_1(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language, vectorizador)
         #elif herramienta == 'TreeTagger':
                 #result = analisis_2(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language)
                 
