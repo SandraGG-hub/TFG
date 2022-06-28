@@ -1,6 +1,6 @@
 # Documentación técnica TFG
 
-Introducción
+##Introducción
 
 El proyecto ha consistido en el desarrollo de un sistema de mineria de opiniones con datos de la red social Twitter, con el objetivo de permitir la identificacion del sentimiento de odio y la detección de ciertos sesgos sociales como la discriminación racial y de genero. Para ello, tras el estudio de los requisitos y el diseño del sistema, el producto final se encuentra estructurado en tres capas. 
 
