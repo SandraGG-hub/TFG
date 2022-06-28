@@ -21,7 +21,7 @@ Se corresponde con la carpeta que contiene toda la información necesaria para t
 ### Requirements
 En este archivo de texto se vuelca toda la información correspondiente a las diferentes versiones de las librerías utilizadas en el desarrollo. Es necesario para que a la hora de realizar el despliegue de la aplicación en Streamlit, no haya problemas debido a incompatibilidades.
 
-###Auxiliar
+### Auxiliar
 En esta carpeta se encuentran todos los ficheros auxiliar de los que hará uso la aplicación. Tanto de los archivos correspondientes a los datasets cargados, como los archivos correspondientes a la herramienta TreeTagger. Cabe destacar que algunos ficheros no se utilizan para la aplicación desplegada ya que corresponden al análisis realizado previamente. 
 
 
