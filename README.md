@@ -10,5 +10,16 @@ La segunda capa es la capa de visualización, se encarga de visualizar todo el d
 
 La tercera, que corresponde a la Capa de mineria de opiniones, consta de un consumidor de texto; que leera los datasets elegidos, un preprocesado de los mismos, el entrenamiento del clasificador Naive Bayes y por ultimo la validacion del algoritmo calculando las metricas y obteniendo la matriz de confusion.
 
-Descripción del repositorio
+## Descripción del repositorio
+
+### Dashboard
+Se corresponde al fichero que recibe el nombre de "myapp.py", aquí se contiene todo el código fuente correspondiente a la aplicación que se visualiza en Streamlit y que podemos encontrar accediendo a esta URL: https://sandragg-hub-tfg-myapp-2f2rtv.streamlitapp.com/ 
+
+### Locales
+Se corresponde con la carpeta que contiene toda la información necesaria para traducir la aplicación tanto al idioma inglés como al idioma español. Estos ficheros son los que se crean haciendo uso del módulo PyGettext de python. Es por ello, que dentro de ella podemos encontrar a su vez dos carpetas llamadas "es" y "en" que corresponden a cada uno de los idiomas mencionados. 
+
+### Requirements
+En este archivo de texto se vuelca toda la información correspondiente a las diferentes versiones de las librerías utilizadas en el desarrollo. Es necesario para que a la hora de realizar el despliegue de la aplicación en Streamlit, no haya problemas debido a incompatibilidades.
+
+
 
