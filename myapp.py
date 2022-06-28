@@ -125,8 +125,12 @@ def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
 
         #división del conjunto de datos
         x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, test_size=test, train_size=train)
+
+        if vectorizador == 'CountVectorizer':
+            vect = CountVectorizer(max_df=0.5, min_df=2, ngram_range=(ngram_1, ngram_2), max_features = max_feat)
+        if vectorizador == 'TfidfVectorizer':
+            vect = TfidfVectorizer(token_pattern='\S+', ngram_range=(ngram_1, ngram_2),max_df=0.5, min_df=2, max_features = max_feat)
         
-        vect = CountVectorizer(max_df=0.5, min_df=2, ngram_range=(ngram_1, ngram_2), max_features = max_feat)
         x_train_dtm = vect.fit_transform(x_train)
         x_test_dtm = vect.transform(x_test)
         st.subheader(_('División del conjunto de datos'))
@@ -167,114 +171,114 @@ def analisis_1(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, te
         return dataframe
 
 #sistema de minería de opiniones con herramienta TreeTagger
-def analisis_2(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, test, train, language):
+#def analisis_2(dataset_clasificador, max_feat, ngram_1, ngram_2, class_names, test, train, language):
 
         #leer dataset
-        tweet = pd.read_csv(dataset_clasificador, header=None, sep=';', names=['label', 'tweets'])
+        #tweet = pd.read_csv(dataset_clasificador, header=None, sep=';', names=['label', 'tweets'])
 
         #etiquetado de sentimientos    
-        if dataset_clasificador == 'traducir/total_tuits_odio.csv':
-            tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
-        elif dataset_clasificador == 'traducir/total_tuits_odio_1discriminacion.csv':
-            tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
-        elif dataset_clasificador == 'traducir/total_tuits_odio_2discriminaciones.csv':
-            tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
-        else:
-                st.write(f'{dataset_clasificador}')
-                if len(class_names) == 2:
-                        tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
-                elif len(class_names) == 3:
-                        tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
-                elif len(class_names) == 4:
-                         tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
+        #if dataset_clasificador == 'traducir/total_tuits_odio.csv':
+         #   tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
+        #elif dataset_clasificador == 'traducir/total_tuits_odio_1discriminacion.csv':
+         #   tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
+        #elif dataset_clasificador == 'traducir/total_tuits_odio_2discriminaciones.csv':
+          #  tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
+        #else:
+                #st.write(f'{dataset_clasificador}')
+               # if len(class_names) == 2:
+                #        tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1})
+                #elif len(class_names) == 3:
+                #        tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2})
+                #elif len(class_names) == 4:
+                #         tweet['label_num']=tweet.label.map({'odio':0, 'no odio':1, 'discriminacion racial':2, 'discriminacion genero':3})
                          
         #simplificación de carcajadas en caso de que las hubiera
-        tweet.replace('jajaja', 'jaja')
-        tweet.replace('jajajaj', 'jaja')
-        tweet.replace('jajajaja', 'jaja')
-        tweet.replace('jajajajajaj', 'jaja')
-        tweet.replace('jajajajajjaja', 'jaja')
-        tweet.replace('jajaj', 'jaja')
-        tweet.replace('jaaja', 'jaja')
-        tweet.replace('jaaaja', 'jaja')
-        tweet.replace('jajajajaja', 'jaja')
-        tweet.replace('jajajajajajaja', 'jaja')
-        tweet.replace('jajajajajajajajaja', 'jaja')
-        tweet.replace('jajajajajajajajajaja', 'jaja')
+        #tweet.replace('jajaja', 'jaja')
+        #tweet.replace('jajajaj', 'jaja')
+        #tweet.replace('jajajaja', 'jaja')
+        #tweet.replace('jajajajajaj', 'jaja')
+        #tweet.replace('jajajajajjaja', 'jaja')
+        #tweet.replace('jajaj', 'jaja')
+        #tweet.replace('jaaja', 'jaja')
+        #tweet.replace('jaaaja', 'jaja')
+        #tweet.replace('jajajajaja', 'jaja')
+        #tweet.replace('jajajajajajaja', 'jaja')
+        #tweet.replace('jajajajajajajajaja', 'jaja')
+        #tweet.replace('jajajajajajajajajaja', 'jaja')
 
         #preprocesamiento
-        preproceso=[]
-        tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='traducir/bin/')
-        for x in tweet['tweets']:
-            tags = tagger.TagText(x)
-            row=''
-            for w in tags:
-                  a,b,c=w.split()
-                  palabra=b+'/'+c+' '
-                  row = row+palabra
-            preproceso.append(row)
+        #preproceso=[]
+        #tagger=treetaggerwrapper.TreeTagger(TAGLANG='es', TAGDIR='traducir/bin/')
+        #for x in tweet['tweets']:
+            #tags = tagger.TagText(x)
+            #row=''
+            #for w in tags:
+               #   a,b,c=w.split()
+                #  palabra=b+'/'+c+' '
+                #  row = row+palabra
+            #preproceso.append(row)
 
         #ajuste idioma español
-        if language == 'es':
-            tweet['preproceso']=preproceso
+       # if language == 'es':
+        #    tweet['preproceso']=preproceso
         #ajuste idioma inglés
-        elif language == 'en':
-            tweet['preprocess']=preproceso
-        st.subheader(_('Preprocesamiento'))
-        if language == 'es':
-            st.write(tweet['preproceso'])
-        elif language == 'en':
-            st.write(tweet['preprocess'])
+        #elif language == 'en':
+        #    tweet['preprocess']=preproceso
+        #st.subheader(_('Preprocesamiento'))
+        #if language == 'es':
+         #   st.write(tweet['preproceso'])
+        #elif language == 'en':
+          #  st.write(tweet['preprocess'])
 
-        if language == 'es':
-            x= tweet.preproceso
-        if language == 'en':
-            x= tweet.preprocess
-        y= tweet.label_num
+        #if language == 'es':
+          #  x= tweet.preproceso
+        #if language == 'en':
+           # x= tweet.preprocess
+        #y= tweet.label_num
 
         #división del conjunto de datos
-        x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, test_size=test, train_size=train)
+        #x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, test_size=test, train_size=train)
 
         #TF-IDF
-        vect = TfidfVectorizer(token_pattern='\S+', ngram_range=(ngram_1, ngram_2),max_df=0.5, min_df=2, max_features = max_feat)
-        x_train_dtm = vect.fit_transform(x_train)
+        #vect = TfidfVectorizer(token_pattern='\S+', ngram_range=(ngram_1, ngram_2),max_df=0.5, min_df=2, max_features = max_feat)
+        #x_train_dtm = vect.fit_transform(x_train)
 
-        x_test_dtm = vect.transform(x_test)
+        #x_test_dtm = vect.transform(x_test)
 
-        st.subheader(_('División del conjunto de datos'))
-        st.markdown(_('Set de entrenamiento (80%):'))
-        st.write(x_train_dtm.shape)
-        st.markdown(_('Set de prueba (20%):'))
-        st.write(x_test_dtm.shape)
+        #st.subheader(_('División del conjunto de datos'))
+        #st.markdown(_('Set de entrenamiento (80%):'))
+        #st.write(x_train_dtm.shape)
+        #st.markdown(_('Set de prueba (20%):'))
+        #st.write(x_test_dtm.shape)
 
         #creación bolsa de palabras
-        st.subheader(_('Bolsa de palabras'))
-        matriz= pd.DataFrame(x_train_dtm.toarray(), columns=vect.get_feature_names_out())
-        st.write(matriz)
+        #st.subheader(_('Bolsa de palabras'))
+        #matriz= pd.DataFrame(x_train_dtm.toarray(), columns=vect.get_feature_names_out())
+        #st.write(matriz)
 
         #entrenamiento del clasificador
-        nb_multi = MultinomialNB()
-        nb_multir = nb_multi.fit(x_train_dtm, y_train)
-        y_pred_class = nb_multi.predict(x_test_dtm)
+        #nb_multi = MultinomialNB()
+        #nb_multir = nb_multi.fit(x_train_dtm, y_train)
+        #y_pred_class = nb_multi.predict(x_test_dtm)
 
         #cálculo de métricas
-        st.subheader(_('Métricas'))
-        st.markdown(_('Accuracy:'))
-        st.info(accuracy_score(y_test, y_pred_class))
-        st.markdown(_('Precision:'))
-        st.info(precision_score(y_test, y_pred_class, average='weighted'))
-        st.markdown(_('Recall:'))
-        st.info(recall_score(y_test, y_pred_class, average='weighted'))
-        st.markdown(_('F1-score:'))
-        st.info(f1_score(y_test, y_pred_class, average='weighted'))
+        #st.subheader(_('Métricas'))
+        #st.markdown(_('Accuracy:'))
+        #st.info(accuracy_score(y_test, y_pred_class))
+        #st.markdown(_('Precision:'))
+        #st.info(precision_score(y_test, y_pred_class, average='weighted'))
+        #st.markdown(_('Recall:'))
+        #st.info(recall_score(y_test, y_pred_class, average='weighted'))
+        #st.markdown(_('F1-score:'))
+        #st.info(f1_score(y_test, y_pred_class, average='weighted'))
 
         #crear matriz de confusión
-        matrix = confusion_matrix(y_test, y_pred_class)
+        #matrix = confusion_matrix(y_test, y_pred_class)
 
         #crear marco de datos de pandas 
-        dataframe = pd.DataFrame(matrix, index=class_names, columns=class_names)
+        #dataframe = pd.DataFrame(matrix, index=class_names, columns=class_names)
         
-        return dataframe
+        #return dataframe
 
 
 def main():
@@ -354,17 +358,25 @@ def main():
                                 st.write('Dataset dimension: ' + str(data_user.shape[0]) + ' rows and ' + str(data_user.shape[1]) + ' columns.')
                                 st.dataframe(data_user, 2000)
 
+    #escoger vectorizador
+    option_vectorizador = ['CountVectorizer', 'TfidfVectorizer']
+    if language == 'es':
+        vectorizador = st.sidebar.selectbox('¿Qué vectorizador desea usar?', option_vectorizador)
+    elif language == 'en':
+        vectorizador = st.sidebar.selectbox('What vectorizer do you want to use?', option_vectorizador)
+        
     #escoger la herramienta de preprocesamiento
-    option_herramienta = ['NLTK', 'TreeTagger']
-    if language == 'es':
-        herramienta = st.sidebar.selectbox('¿Qué herramienta desea usar?', option_herramienta)
-    elif language == 'en':
-        herramienta = st.sidebar.selectbox('What tool do you want to use?', option_herramienta)
+    #option_herramienta = ['NLTK', 'TreeTagger']
+    #if language == 'es':
+    #    herramienta = st.sidebar.selectbox('¿Qué herramienta desea usar?', option_herramienta)
+    #elif language == 'en':
+    #    herramienta = st.sidebar.selectbox('What tool do you want to use?', option_herramienta)
+    
     st.subheader(_('Parámetros del usuario'))
-    if language == 'es':
-        st.markdown(f"Herramienta seleccionada: {herramienta}")
-    elif language == 'en':
-        st.markdown(f"Selected tool: {herramienta}")
+    #if language == 'es':
+    #    st.markdown(f"Herramienta seleccionada: {herramienta}")
+    #elif language == 'en':
+    #    st.markdown(f"Selected tool: {herramienta}")
     st.write(df)
 
     #mostrar dataset seleccionado
@@ -490,10 +502,10 @@ names=['label', 'tweets'])
                 ngramas_1 = 1
                 ngramas_2 = 2
 
-        if herramienta == 'NLTK':
-                result = analisis_1(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language)
-        elif herramienta == 'TreeTagger':
-                result = analisis_2(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language)
+        #if herramienta == 'NLTK':
+                result = analisis_1(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language, vectorizador)
+        #elif herramienta == 'TreeTagger':
+                #result = analisis_2(dataset_clasificador, df.max_features[0], ngramas_1, ngramas_2, class_names, df.test_size[0], df.train_size[0], language)
                 
         #calcular total de la muestra para representar la matriz de confusión
         if language == 'es':
