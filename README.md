@@ -24,5 +24,7 @@ En este archivo de texto se vuelca toda la información correspondiente a las di
 ### Auxiliar
 En esta carpeta se encuentran todos los ficheros auxiliar de los que hará uso la aplicación. Tanto de los archivos correspondientes a los datasets cargados, como los archivos correspondientes a la herramienta TreeTagger. Cabe destacar que algunos ficheros no se utilizan para la aplicación desplegada ya que corresponden al análisis realizado previamente. 
 
+### Extracción Corpus
+Este fichero de Python es el que se utiliza en la primera fase del proyecto para llevar a cabo la formación del Corpus. En él encontraremos las listas clave utilizadas para el sentimiento de odio y la detección de sesgos sociales como la discriminación racial y de género. Además de la eliminación de tildes, retuits y los pasos que se realizan en la primera limpieza de tuits.
 
 
